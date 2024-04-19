@@ -1,0 +1,3 @@
+┌──(usr㉿TheThird)-[~/Desktop/HTB/CPTS-Final/DC01]
+└─$ /usr/share/john/pwsafe2john.py trilocor_svc_vault.psafe3 
+trilocor_svc_vault:$pwsafe$*3*<-REDACTED->

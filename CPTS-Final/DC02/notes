@@ -1,0 +1,12 @@
+after getting DCSYNC on DC01 - discovered a new forest trilocorai.local
+found user svc_datakeeper with RM rights on DC02
+user is kerberoastable
+got creds
+logged in to DC02
+on DC02, leveraged Event Log Reader privilege to find some credentials for svc_veracrypt
+this user can also RM on DC02
+leveraged diskshadow.exe to make a backup of NTDS.dit
+also used reg save command to obtain the SAM and SYSTEM hives
+copied all of these files over to attack host to extract hashes
+used Administrator hash from ntds.dit to PTH Evil-WinRM to obtain root flag
+

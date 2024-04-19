@@ -1,0 +1,15 @@
+Scope
+The scope of this assessment is as follows:
+www.trilocor.local, any identified *.trilocor.local subdomain, and any open web server ports discovered on the "Entry Point" IP address that will become visible upon pressing "SPAWN INSTANCE" (Step 2 below).
+Scanning any other IP in the Entry Point's network is NOT allowed!
+Multiple different subdomains exist on the entry point host
+
+--IP Range--
+trilocor.local	Main Trilocor website
+172.16.139.0/24	Internal network subnet
+172.16.210.0/24	Internal network subnet
+
+--Map--
+
+
+--NMap--

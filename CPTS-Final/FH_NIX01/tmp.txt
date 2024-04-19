@@ -1,0 +1,11 @@
+┌──(usr㉿TheThird)-[~/…/HTB/CPTS-Final/FH_NIX01/osticket_data]
+└─$ hashcat -m 3200 admin.hash /usr/share/wordlists/rockyou.txt --potfile-disable
+hashcat (v6.2.6) starting
+<- SNIP ->
+Dictionary cache hit:
+* Filename..: /usr/share/wordlists/rockyou.txt
+* Passwords.: 14344385
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+<- SNIP ->
+$2a$08$UPdUiJSf37r.<REDACTED>:<REDACTED>
